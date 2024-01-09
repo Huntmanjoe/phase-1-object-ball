@@ -123,5 +123,28 @@ function gameObject() {
         }
    } 
 }
+   
 }
-gameObject():
+
+function homeTeamName() {
+    let object = gameObject();
+    return object["home"]["teamName"];
+  }
+  console.log(homeTeamName());
+
+  function numPointsScored(playerName) {
+    let game = gameObject();
+    let teams = ["home", "away"];
+
+    for (let i = 0; i < teams.length; i++) {
+        let teamPlayers = game[teams[i]].players;
+        for (let player in teamPlayers) {
+            if (teamPlayers[player].name === playerName)
+            return teamPlayers[player].points;
+        }
+    }
+
+  }
+
+  console.log(numPointsScored("Ben Gordon"));
+
